@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: 'MedievalSharp', cursive;
+  background: #0b0c10;
+  color: #f4e9d8;
+  background-image: url('assets/images/old-parchment-bg.jpg'); /* optionnel */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-card {
+  max-width: 800px;
+  margin: auto;
+  border: 6px double goldenrod;
+  border-radius: 10px;
+  padding: 2rem;
+  background: rgba(34, 34, 34, 0.95);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: gold;
+}
+
+h2 {
+  font-size: 1rem;
+  color: lightgray;
+}
+
+ul {
+  list-style-type: '🗡 ';
+  padding-left: 2rem;
+  line-height: 2rem;
+}
+
+.skills-rpg li strong {
+  color: gold;
+}
+
+.quests {
+  margin-top: 2rem;
+}
+
+.filters {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.filters button {
+  margin: 0 5px;
+  background: #333;
+  border: 1px solid goldenrod;
+  color: gold;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+#questList {
+  list-style-type: '📜 ';
+  padding-left: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+#questList li {
+  margin-bottom: 1rem;
+}
+
+.quests ul {
+  list-style-type: '📜 ';
+  padding-left: 2rem;
+}
+
+.quests li {
+  margin-bottom: 1rem;
+}
+
+button {
+  font-family: inherit;
+  background: darkred;
+  color: white;
+  border: 2px solid goldenrod;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  font-family: inherit;
+  background: #333;
+  color: white;
+  border: 1px solid goldenrod;
+}
+
+form button[type="submit"] {
+  background: goldenrod;
+  color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+

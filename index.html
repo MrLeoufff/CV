@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="hero-card">
+      <h1>René Leliard</h1>
+      <h2>Classe : Développeur Web/Mobile</h2>
+
+      <section class="skills-rpg">
+        <h3>Fiche de compétences</h3>
+        <ul>
+          <li>
+            Sortilège favori : <strong>Symfony</strong> – maîtrise des entités,
+            formulaires, sécurités
+          </li>
+          <li>
+            Invocation rapide : <strong>Vue.js</strong> – composants dynamiques,
+            props, événements
+          </li>
+          <li>
+            Forge magique : <strong>HTML/CSS/JS</strong> – interfaces pixel
+            perfect, responsive, animées
+          </li>
+          <li>Équipement : <strong>VS Code, Git, Linux, Docker</strong></li>
+        </ul>
+      </section>
+
+      <section class="inventory">
+        <h3>Inventaire</h3>
+        <ul>
+          <li>Épée : VS Code</li>
+          <li>Armure : Git & GitHub</li>
+          <li>Potion : Stack Overflow</li>
+        </ul>
+      </section>
+
+      <section class="quests">
+        <h3>Quêtes accomplies</h3>
+
+        <div class="filters">
+          <button onclick="filterProjects('all')">Tous</button>
+          <button onclick="filterProjects('symfony')">Symfony</button>
+          <button onclick="filterProjects('vue')">Vue.js</button>
+          <button onclick="filterProjects('html')">HTML/CSS</button>
+        </div>
+
+        <ul id="questList">
+          <!-- Les deux premiers projets sont affichés d'office -->
+          <li data-tech="symfony">
+            ⚔️ <strong>NW-Burger</strong> – Site food truck (Symfony +
+            OpenStreetMap)
+          </li>
+          <li data-tech="html">
+            🎨 <strong>Ongles Maribel</strong> – Site vitrine responsive en
+            HTML/CSS
+          </li>
+        </ul>
+
+        <button id="loadMoreBtn" onclick="loadMoreQuests()">
+          Afficher + de quêtes
+        </button>
+      </section>
+
+      <section class="contact">
+        <h3>Recrutez-moi</h3>
+        <button onclick="revealForm()">Envoyer un parchemin</button>
+        <form id="contactForm" style="display: none">
+          <input type="text" placeholder="Votre nom" />
+          <input type="email" placeholder="Votre email" />
+          <textarea placeholder="Votre message"></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
