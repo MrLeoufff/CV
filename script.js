@@ -63,11 +63,10 @@ function filterProjects(tech) {
   }, 200);
 }
 
-// Réduction du volume à un niveau subtil
 document.addEventListener('DOMContentLoaded', () => {
   const ambiance = document.getElementById('ambience');
   if (ambiance) {
-    ambiance.volume = 0.1; // volume très bas
+    ambiance.volume = 0.1;
   }
 });
 
@@ -87,7 +86,6 @@ function createSparkle(x, y) {
     const sparkle = document.createElement("div");
     sparkle.className = "sparkle";
 
-    // Aléatoire autour du point de clic
     const dx = (Math.random() - 0.5) * 500 + "px";
     const dy = (Math.random() - 0.5) * 500 + "px";
     sparkle.style.setProperty('--dx', dx);
@@ -98,7 +96,6 @@ function createSparkle(x, y) {
 
     document.body.appendChild(sparkle);
 
-    // Nettoyage après l’animation
     sparkle.addEventListener("animationend", () => sparkle.remove());
   }
 }
