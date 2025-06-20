@@ -3,68 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV</title>
+    <title>CV - René Leliard</title>
     <link
       href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
+
+  <audio
+    id="ambience"
+    src="assets/sounds/battle-of-the-dragons-8037.mp3"
+    autoplay
+    loop
+  ></audio>
+  <audio
+    id="clickSound"
+    src="assets/sounds/acid_spell_cast_squish_whoosh_impact_04-286773.mp3"
+    preload="auto"
+  ></audio>
+
   <body>
+    <div id="loader">
+      <div class="loader-inner">
+        <p>🕯️ Lecture de la fiche de personnage...</p>
+      </div>
+    </div>
+
     <main class="hero-card">
       <h1>René Leliard</h1>
-      <h2>Classe : Développeur Web/Mobile</h2>
 
-      <section class="skills-rpg">
-        <h3>Fiche de compétences</h3>
-        <ul>
-          <li>
-            Sortilège favori : <strong>Symfony</strong> – maîtrise des entités,
-            formulaires, sécurités
-          </li>
-          <li>
-            Invocation rapide : <strong>Vue.js</strong> – composants dynamiques,
-            props, événements
-          </li>
-          <li>
-            Forge magique : <strong>HTML/CSS/JS</strong> – interfaces pixel
-            perfect, responsive, animées
-          </li>
-          <li>Équipement : <strong>VS Code, Git, Linux, Docker</strong></li>
-        </ul>
-      </section>
+      <div class="role-toggle">
+        <button onclick="toggleRole()">Changer de rôle 🧠 / 🧙</button>
+      </div>
 
-      <section class="inventory">
-        <h3>Inventaire</h3>
-        <ul>
-          <li>Épée : VS Code</li>
-          <li>Armure : Git & GitHub</li>
-          <li>Potion : Stack Overflow</li>
-        </ul>
-      </section>
+      <div id="roleContainer" class="card-wrapper">
+        <div class="card-3d" id="roleCard">
+          <section id="manager" class="role-face card-face card-front">
+            <section class="manager-section">
+              <h2>🛒 Partie Manager - Grande Distribution</h2>
+              <section class="skills-rpg">
+                <h3>Compétences de gestion</h3>
+                <ul>
+                  <li>
+                    Management d’équipe en magasin (planning, briefings,
+                    motivation)
+                  </li>
+                  <li>Gestion des stocks, approvisionnements et inventaires</li>
+                  <li>Analyse des ventes et optimisation des rayons</li>
+                  <li>Relation client et gestion des litiges</li>
+                  <li>Outils : logiciel caisse, ERP, Excel, Drive</li>
+                </ul>
+              </section>
+              <section class="inventory">
+                <h3>Inventaire du maître de rayon</h3>
+                <ul>
+                  <li>Clé du stock : PDA / Scanner / ERP</li>
+                  <li>Tablette magique : Excel / Google Sheets</li>
+                  <li>
+                    Totem du service client : Badge, sourire, et patience
+                    légendaire
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+
+          <section id="developer" class="role-face card-face card-back">
+            <section class="dev-section">
+              <h2>🧙 Partie Développeur Web/Mobile</h2>
+              <section class="skills-rpg">
+                <h3>Fiche de compétences techniques</h3>
+                <ul>
+                  <li>
+                    <strong>Symfony</strong> – entités, formulaires, sécurité
+                  </li>
+                  <li>
+                    <strong>Vue.js</strong> – composants dynamiques, props,
+                    événements
+                  </li>
+                  <li><strong>HTML/CSS/JS</strong> – responsive, animations</li>
+                  <li>Équipement : VS Code, Git, Docker, Linux</li>
+                </ul>
+              </section>
+              <section class="inventory">
+                <h3>Inventaire du codeur</h3>
+                <ul>
+                  <li>Épée : VS Code</li>
+                  <li>Armure : Git & GitHub</li>
+                  <li>Potion : Stack Overflow</li>
+                </ul>
+              </section>
+            </section>
+          </section>
+        </div>
+        <!-- Fin .card-3d -->
+      </div>
+      <!-- Fin .card-wrapper -->
 
       <section class="quests">
         <h3>Quêtes accomplies</h3>
-
         <div class="filters">
           <button onclick="filterProjects('all')">Tous</button>
           <button onclick="filterProjects('symfony')">Symfony</button>
           <button onclick="filterProjects('vue')">Vue.js</button>
           <button onclick="filterProjects('html')">HTML/CSS</button>
         </div>
-
         <ul id="questList">
-          <!-- Les deux premiers projets sont affichés d'office -->
           <li data-tech="symfony">
             ⚔️ <strong>NW-Burger</strong> – Site food truck (Symfony +
             OpenStreetMap)
           </li>
           <li data-tech="html">
-            🎨 <strong>Ongles Maribel</strong> – Site vitrine responsive en
-            HTML/CSS
+            🎨 <strong>Ongles Maribel</strong> – Site vitrine responsive
           </li>
         </ul>
-
         <button id="loadMoreBtn" onclick="loadMoreQuests()">
           Afficher + de quêtes
         </button>
