@@ -1,3 +1,4 @@
+/* ========== GÉNÉRAL ========== */
 * {
   box-sizing: border-box;
 }
@@ -6,35 +7,31 @@ body {
   margin: 0;
   padding: 2rem;
   font-family: 'MedievalSharp', cursive;
-  background: #0b0c10 url('assets/images/old-parchment-bg.jpg') no-repeat center/cover;
+  background: #0b0c10;
   color: #f4e9d8;
   cursor: url('assets/cursor/cur1054.png'), auto;
 }
-
-.hero-card {
-  max-width: 800px;
-  margin: auto;
-  border: 6px double goldenrod;
-  border-radius: 10px;
-  padding: 2rem;
-  background: rgba(34, 34, 34, 0.95);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-}
-
-h1, h2, h3 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-h1 { font-size: 1.5rem; color: gold; }
-h2 { font-size: 1rem; color: lightgray; }
 
 ul {
   list-style-type: '🗡 ';
   padding-left: 2rem;
   line-height: 2rem;
 }
-.skills-rpg li strong { color: gold; }
 
+/* ========== TITRES ========== */
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 1.5rem; color: gold; }
+h2 { font-size: 1rem; color: lightgray; }
+
+.skills-rpg li strong {
+  color: gold;
+}
+
+/* ========== BOUTONS ========== */
 button {
   font-family: inherit;
   background: darkred;
@@ -45,9 +42,32 @@ button {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-button:hover { transform: scale(1.05); }
+button:hover {
+  transform: scale(1.05);
+}
 
-form input, form textarea {
+.filters button,
+#loadMoreBtn,
+.role-toggle button {
+  cursor: url('assets/cursor/cur1051.png'), auto;
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.filters button {
+  margin: 0 5px;
+  background: #333;
+  border: 1px solid goldenrod;
+  color: gold;
+  padding: 0.4rem 0.8rem;
+}
+
+/* ========== FORMULAIRE DE CONTACT ========== */
+form input,
+form textarea {
   display: block;
   width: 100%;
   margin: 0.5rem 0;
@@ -62,28 +82,37 @@ form button[type="submit"] {
   color: black;
 }
 
+/* ========== CONTENEUR PRINCIPAL (CV) ========== */
+.hero-card {
+  max-width: 800px;
+  margin: auto;
+  border: 6px double goldenrod;
+  border-radius: 10px;
+  padding: 2rem;
+  background: rgba(34, 34, 34, 0.95);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
 .role-toggle {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.role-toggle button {
-  cursor: url('assets/cursor/cur1051.png'), auto;
-}
-
-/* Flip 3D */
+/* ========== EFFET FLIP 3D (RÔLES) ========== */
 .card-wrapper {
   perspective: 1200px;
   width: 100%;
   position: relative;
   min-height: 600px;
 }
+
 .card-3d {
   width: 100%;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
   position: relative;
 }
+
 .card-face {
   backface-visibility: hidden;
   position: absolute;
@@ -91,52 +120,23 @@ form button[type="submit"] {
   top: 0;
   left: 0;
 }
+
 .card-front {
   z-index: 2;
   transform: rotateY(0deg);
 }
+
 .card-back {
   transform: rotateY(180deg);
 }
+
 .card-flipped {
   transform: rotateY(180deg);
 }
 
-/* Accordion mode mobile */
-/* @media (max-width: 767px) {
-  .card-3d {
-    transform: none !important;
-    display: block;
-  }
-  .card-face {
-    position: static;
-    transform: none;
-    backface-visibility: visible;
-  }
-  .card-wrapper {
-    perspective: none;
-  }
-  .role-toggle {
-    display: none;
-  }
-} */
-
+/* ========== SECTION PROJETS (Quêtes) ========== */
 .quests {
   margin-top: 2rem;
-}
-
-.filters {
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.filters button {
-  margin: 0 5px;
-  background: #333;
-  border: 1px solid goldenrod;
-  color: gold;
-  padding: 0.4rem 0.8rem;
-  cursor: url('assets/cursor/cur1051.png'), auto;
 }
 
 #questList {
@@ -148,13 +148,11 @@ form button[type="submit"] {
   margin-bottom: 1rem;
 }
 
-#loadMoreBtn {
-  cursor: url('assets/cursor/cur1051.png'), auto;
-}
-
+/* ========== ANIMATIONS (apparition, loader, étincelles) ========== */
 .fade-in {
   animation: fadeIn 0.6s ease-out;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -166,7 +164,7 @@ form button[type="submit"] {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #1b1b1b url('assets/images/loader-bg.jpg') center/cover no-repeat;
+  background: #1b1b1b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,6 +214,7 @@ form button[type="submit"] {
   }
 }
 
+/* ========== LIEN SECRET (vers projet) ========== */
 .secret-link {
   text-decoration: none;
   margin-left: 5px;
@@ -229,6 +228,7 @@ li:hover .secret-link {
   color: goldenrod;
 }
 
+/* ========== APERÇU IFRAME FANTASY (optionnel) ========== */
 .preview-container {
   position: absolute;
   top: 100%;
@@ -259,5 +259,23 @@ li:hover .preview-container {
   pointer-events: none;
 }
 
-
-
+/* ========== RESPONSIVE (optionnel) ========== */
+/* 
+@media (max-width: 767px) {
+  .card-3d {
+    transform: none !important;
+    display: block;
+  }
+  .card-face {
+    position: static;
+    transform: none;
+    backface-visibility: visible;
+  }
+  .card-wrapper {
+    perspective: none;
+  }
+  .role-toggle {
+    display: none;
+  }
+}
+*/
