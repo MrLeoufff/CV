@@ -279,3 +279,43 @@ li:hover .preview-container {
   }
 }
 */
+
+
+.card-filters {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 2rem 0;
+  perspective: 1000px;
+  gap: 2rem;
+}
+
+.filter-card {
+  background: url("assets/images/parchment.jpg") center/cover no-repeat;
+  width: 120px;
+  height: 160px;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'MedievalSharp', cursive;
+  color: #3b2d1f;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(177, 162, 162, 0.3);
+  transform-origin: bottom center;
+  transform: rotateZ(0deg);
+  transition: transform 0.5s, box-shadow 0.3s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-card:nth-child(1) { transform: rotateZ(-15deg); }
+.filter-card:nth-child(2) { transform: rotateZ(0deg); }
+.filter-card:nth-child(3) { transform: rotateZ(15deg); }
+
+.filter-card.active {
+  transform: translateY(-40px) scale(1.1) rotateZ(0deg);
+  z-index: 10;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+

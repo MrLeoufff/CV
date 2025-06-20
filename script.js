@@ -29,10 +29,15 @@ const allQuests = [
   { tech: "symfony", content: "📦 <strong>SweetDelices</strong> – Commandes clients + API Prestashop" },
   { tech: "vue", content: "🧙 <strong>Interface RPG</strong> – Vue.js + composant dynamique" },
   { 
-    tech: "symfony", 
-    content: `🛠️ <strong>Chatterie Bengal No-mori</strong> – Symfony + rôles utilisateurs
-      <a href="https://www.chatteriebengalnomori.fr/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
-      <div class="preview-container"><img src="assets/images/Capture d’écran 2025-06-20 143415.png" loading="lazy"></img></div>`
+  tech: "symfony", 
+  content: `🛠️ <strong>Chatterie Bengal No-mori</strong> – Symfony + rôles utilisateurs
+    <a href="https://chatteriebengalnomori.fr/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
+    <div class="preview-container">
+      <img src="assets/images/png.png" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px;" />
+    </div>`
+},
+  { tech: "symfony", 
+    content: "📦 <strong>SweetDelices</strong> – Commandes clients + API Prestashop" 
   },
   {
     tech: "html",
@@ -126,3 +131,12 @@ document.querySelectorAll("button").forEach(btn => {
     );
   });
 });
+
+function selectCard(cardElement) {
+  document.querySelectorAll('.filter-card').forEach(c => c.classList.remove('active'));
+  cardElement.classList.add('active');
+
+  const tech = cardElement.dataset.tech;
+  filterProjects(tech);
+}
+

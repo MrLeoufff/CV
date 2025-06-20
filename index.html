@@ -101,15 +101,24 @@
 
       <section class="quests">
         <h3>Quêtes accomplies</h3>
-        <div class="filters">
-          <button onclick="filterProjects('all')">Tous</button>
-          <button onclick="filterProjects('symfony')">Symfony</button>
-          <button onclick="filterProjects('vue')">Vue.js</button>
-          <button onclick="filterProjects('html')">HTML/CSS/JS</button>
+        <div class="card-filters">
+          <div class="filter-card" data-tech="html" onclick="selectCard(this)">
+            🃏 HTML/CSS/JS
+          </div>
+          <div
+            class="filter-card"
+            data-tech="symfony"
+            onclick="selectCard(this)"
+          >
+            ⚔️ Symfony
+          </div>
+          <div class="filter-card" data-tech="vue" onclick="selectCard(this)">
+            🧙 Vue.js
+          </div>
         </div>
+
         <ul id="questList">
-          
-          </li>
+          <!-- Tes projets statiques ici -->
         </ul>
         <button id="loadMoreBtn" onclick="loadMoreQuests()">
           Afficher + de quêtes
