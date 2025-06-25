@@ -22,44 +22,89 @@ function revealForm() {
 function toggleRole() {
   const card = document.getElementById("roleCard");
   card.classList.toggle("card-flipped");
+
+  currentRole = currentRole === "manager" ? "developer" : "manager";
+  currentIndex = 0;
+  document.getElementById("questList").innerHTML = "";
+  document.getElementById("loadMoreBtn").style.display = "inline-block";
+  updateFilterLabels();
+  loadMoreQuests();
+}
+
+// Appel initial pour mettre à jour les labels
+const filterLabels = {
+  developer: {
+    html: "🃏 HTML/CSS/JS",
+    symfony: "⚔️ Symfony",
+    vue: "🧙 Vue.js"
+  },
+  manager: {
+    html: "📋 Organisation",
+    symfony: "📦 Gestion de stock",
+    vue: "📈 Suivi des ventes"
+  }
+};
+
+function updateFilterLabels() {
+  const labels = filterLabels[currentRole];
+  document.getElementById("filter-html").textContent = labels.html;
+  document.getElementById("filter-symfony").textContent = labels.symfony;
+  document.getElementById("filter-vue").textContent = labels.vue;
 }
 
 // === 5. Projets dynamiques ===
-const allQuests = [
-  { tech: "symfony", content: "📦 <strong>SweetDelices</strong> – Commandes clients + API Prestashop" },
-  { tech: "vue", content: "🧙 <strong>Interface RPG</strong> – Vue.js + composant dynamique" },
-  { 
-  tech: "symfony", 
-  content: `🛠️ <strong>Chatterie Bengal No-mori</strong> – Symfony + rôles utilisateurs
-    <a href="https://chatteriebengalnomori.fr/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
-    <div class="preview-container">
-      <img src="assets/images/png.png" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px;" />
-    </div>`
-},
-  { tech: "symfony", 
-    content: "📦 <strong>SweetDelices</strong> – Commandes clients + API Prestashop" 
-  },
-  {
-    tech: "html",
-    content: `⚔️ <strong>NW-Burger</strong> – Site food truck responsive
-      <a href="https://burger-rene.netlify.app/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
-      <div class="preview-container"><iframe src="https://burger-rene.netlify.app/" loading="lazy"></iframe></div>`
-  },
-  {
-    tech: "html",
-    content: `⚔️ <strong>Ongles Maribel</strong> – Site vitrine responsive
-      <a href="https://votre-boutique-rene.netlify.app/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
-      <div class="preview-container"><iframe src="https://votre-boutique-rene.netlify.app/" loading="lazy"></iframe></div>`
-  }
-];
+const questsByRole = {
+  manager: [
+    {
+      tech: "html",
+      content: "🧾 <strong>Optimisation de linéaire</strong> – Merchandising & facing"
+    },
+    {
+      tech: "symfony",
+      content: "📊 <strong>Suivi des stocks</strong> – Tableaux Excel & ERP"
+    }
+  ],
+  developer: [
+    {
+      tech: "vue",
+      content: "🧙 <strong>Interface RPG</strong> – Vue.js + composant dynamique"
+    },
+    {
+      tech: "symfony",
+      content: `🛠️ <strong>Chatterie Bengal No-mori</strong> – Symfony + rôles utilisateurs
+      <a href="https://chatteriebengalnomori.fr/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
+      <div class="preview-container">
+        <img src="assets/images/png.png" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px;" />
+      </div>`
+    },
+    {
+      tech: "symfony",
+      content: "📦 <strong>SweetDelices</strong> – Commandes clients + API Prestashop"
+    },
+    {
+      tech: "html",
+      content: `⚔️ <strong>NW-Burger</strong> – Site food truck responsive
+        <a href="https://burger-rene.netlify.app/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
+        <div class="preview-container"><iframe src="https://burger-rene.netlify.app/" loading="lazy"></iframe></div>`
+    },
+    {
+      tech: "html",
+      content: `⚔️ <strong>Ongles Maribel</strong> – Site vitrine responsive
+        <a href="https://votre-boutique-rene.netlify.app/" class="secret-link" target="_blank" rel="noopener noreferrer" title="Voir le projet 🧭">🔗</a>
+        <div class="preview-container"><iframe src="https://votre-boutique-rene.netlify.app/" loading="lazy"></iframe></div>`
+    }
+  ]
+};
 
+let currentRole = "manager";
 let currentIndex = 0;
 const itemsPerLoad = 2;
 let currentFilter = "all";
 
 function loadMoreQuests() {
   const list = document.getElementById("questList");
-  const filtered = currentFilter === "all" ? allQuests : allQuests.filter(q => q.tech === currentFilter);
+  const roleQuests = questsByRole[currentRole] || [];
+  const filtered = currentFilter === "all" ? roleQuests : roleQuests.filter(q => q.tech === currentFilter);
   const slice = filtered.slice(currentIndex, currentIndex + itemsPerLoad);
 
   slice.forEach(q => {
@@ -90,7 +135,6 @@ function filterProjects(tech) {
     loadMoreQuests();
   }, 200);
 }
-
 
 // === 6. Sons de clics magiques ===
 function playClickSound() {
@@ -139,4 +183,10 @@ function selectCard(cardElement) {
   const tech = cardElement.dataset.tech;
   filterProjects(tech);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateFilterLabels();
+  loadMoreQuests();
+});
+
 
