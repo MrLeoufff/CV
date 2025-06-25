@@ -62,6 +62,10 @@ const questsByRole = {
     {
       tech: "symfony",
       content: "📊 <strong>Suivi des stocks</strong> – Tableaux Excel & ERP"
+    },
+    {
+      tech: "vue",
+      content: "📈 <strong>Suivi des ventes</strong> – Graphiques & statistiques"
     }
   ],
   developer: [

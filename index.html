@@ -41,7 +41,7 @@
         <div class="card-3d" id="roleCard">
           <section id="manager" class="role-face card-face card-front">
             <section class="manager-section">
-              <h2>🛒 Partie Manager - Grande Distribution</h2>
+              <h2>🛒 Partie Manager (Chef d'Équipe) - Grande Distribution</h2>
               <section class="skills-rpg">
                 <h3>Compétences de gestion</h3>
                 <ul>
@@ -136,14 +136,32 @@
         </button>
       </section>
 
+      <div class="cv-download">
+        <a href="assets/files/CV-Rene.pdf" download>
+          📜 Télécharger le grimoire du Héros (CV)
+        </a>
+      </div>
+
       <section class="contact">
         <h3>Recrutez-moi</h3>
         <button onclick="revealForm()">Envoyer un parchemin</button>
-        <form id="contactForm" style="display: none">
-          <input type="text" placeholder="Votre nom" />
+        <form
+          id="contactForm"
+          style="display: none"
+          action="https://formspree.io/f/meojggog"
+          method="POST"
+        >
+          <input
+            type="text"
+            placeholder="Votre nom"
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
           <input type="email" placeholder="Votre email" />
           <textarea placeholder="Votre message"></textarea>
-          <!-- <button type="submit">Envoyer</button> -->
+          <button type="submit">Envoyer</button>
         </form>
       </section>
     </main>

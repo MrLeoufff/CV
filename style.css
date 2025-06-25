@@ -335,9 +335,40 @@ li:hover .preview-container {
   z-index: 1;
 }
 
+.cv-download {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cv-download a {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background: darkred;
+  color: gold;
+  border: 2px solid goldenrod;
+  border-radius: 10px;
+  font-family: 'MedievalSharp', cursive;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: url('assets/cursor/cur1051.png'), auto;
+}
+
+.cv-download a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px gold;
+}
+
+
 @media (max-width: 768px) {
   .quests {
     margin-top: 6rem;
+  }
+
+  .card-filters {
+    gap: 0;  }
+
+  .filter-card {
+    margin-inline: -20px;
   }
 }
 
