@@ -12,6 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (ambiance) ambiance.volume = 0.1;
 });
 
+const popup = document.getElementById('musicConsent');
+const music = document.getElementById('ambience');
+const enableBtn = document.getElementById('enableMusic');
+const declineBtn = document.getElementById('declineMusic');
+
+enableBtn.addEventListener('click', () => {
+  music.play()
+    .then(() => {
+      // ✅ Lecture réussie → on cache la popup
+      popup.style.display = 'none';
+    })
+    .catch(error => {
+      console.error("Erreur lecture audio :", error);
+      alert("Impossible de lire la musique. Vérifiez le format ou autorisez l'audio.");
+      popup.style.display = 'none'; // Optionnel : on cache quand même
+    });
+});
+
+declineBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
 // === 3. Formulaire magique ===
 function revealForm() {
   const form = document.getElementById("contactForm");
