@@ -8,30 +8,32 @@ window.addEventListener("load", () => {
 
 // === 2. Musique d’ambiance ===
 document.addEventListener("DOMContentLoaded", () => {
-  const ambiance = document.getElementById("ambience");
-  if (ambiance) ambiance.volume = 0.1;
-});
+  const popup = document.getElementById('musicConsent');
+  const music = document.getElementById('ambience');
+  const enableBtn = document.getElementById('enableMusic');
+  const declineBtn = document.getElementById('declineMusic');
 
-const popup = document.getElementById('musicConsent');
-const music = document.getElementById('ambience');
-const enableBtn = document.getElementById('enableMusic');
-const declineBtn = document.getElementById('declineMusic');
+  if (music) {
+    music.volume = 0.2; // Volume initial
+  }
 
-enableBtn.addEventListener('click', () => {
-  music.play()
-    .then(() => {
-      // ✅ Lecture réussie → on cache la popup
-      popup.style.display = 'none';
-    })
-    .catch(error => {
-      console.error("Erreur lecture audio :", error);
-      alert("Impossible de lire la musique. Vérifiez le format ou autorisez l'audio.");
-      popup.style.display = 'none'; // Optionnel : on cache quand même
-    });
-});
+  enableBtn.addEventListener('click', () => {
+    music.loop = true;
+    music.play()
+      .then(() => {
+        // ✅ Lecture réussie → on cache la popup
+        popup.style.display = 'none';
+      })
+      .catch(error => {
+        console.error("Erreur lecture audio :", error);
+        alert("Impossible de lire la musique. Vérifiez le format ou autorisez l'audio.");
+        popup.style.display = 'none'; // Optionnel : on cache quand même
+      });
+  });
 
-declineBtn.addEventListener('click', () => {
-  popup.style.display = 'none';
+  declineBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
 });
 
 // === 3. Formulaire magique ===
